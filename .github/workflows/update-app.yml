@@ -2,5 +2,15 @@ on: [push]
 
 jobs:
   update-app:
+    name: Update app
+    runs-on: ubuntu-latest
     steps:
-      -
+      - name: update the app on the server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /root/ironfist-bot
+            yarn build
+            yarn pm2 restart bot --update-env
