@@ -13,5 +13,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           script: |
             cd /root/ironfist-bot
+            yarn
             yarn build
             yarn pm2 restart bot --update-env
