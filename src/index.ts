@@ -31,7 +31,9 @@ dotenv.config();
       (ev.content.simplify().startsWith("jak") ||
         ev.content.simplify().startsWith("ajak"))
     ) {
-      ev.channel.send("Tak Pan Jezus powiedział.");
+      if (ev.content.endsWith(";3"))
+        ev.channel.send("Tak Pan Jezus powiedział. ;3");
+      else ev.channel.send("Tak Pan Jezus powiedział. ;3");
       return;
     }
 
@@ -39,12 +41,15 @@ dotenv.config();
       matches.takPanJezusPowiedzial(ev.content) &&
       ev.content.simplify().startsWith("tak")
     ) {
-      ev.channel.send("A jak Pan Jezus powiedział?");
+      if (ev.content.endsWith(";3"))
+        ev.channel.send("A jak Pan Jezus powiedział? ;3");
+      else ev.channel.send("A jak Pan Jezus powiedział?");
       return;
     }
 
     if (ev.content.simplify() === "tak" || ev.content.simplify() === "atak") {
-      ev.channel.send("A jak?");
+      if (ev.content.startsWith(";3")) ev.channel.send("A jak? ;3");
+      else ev.channel.send("A jak?");
       return;
     }
   });
