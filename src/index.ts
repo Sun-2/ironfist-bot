@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 
 /* Initialize prototype extensions. */
 import "./utils/initExtensions";
+import { matches } from "./utils/matches";
 
 dotenv.config();
 
@@ -12,19 +13,21 @@ dotenv.config();
   console.log("Starting");
 
   client.on("message", async ev => {
-    console.log("msg", ev.content);
-    if (ev.content === "A można?") {
-      ev.channel.send("Jeszcze jak!");
-    }
+    if (ev.author.bot) return;
 
-    if (ev.content.endsWith("wo")) {
-      console.log("TERMINATE");
+    console.log(`Msg ${ev.content} from ${ev.author.username}`);
+
+    if (matches.ginKurwo(ev.content)) {
       ev.channel.send(
         `${ev.mentions.users.array().join(" ")}`,
         new Discord.MessageAttachment(
           "https://media.tenor.com/images/fa1413635da20b66859dc93fef418302/tenor.gif"
         )
       );
+    }
+
+    if (matches.jakPanJezusPowiedzial(ev.content)) {
+      ev.channel.send("Tak Pan Jezus powiedział.");
     }
 
     if (ev.content.simplify() === "ajakpanjezuspowiedzial") {
