@@ -11,6 +11,6 @@
   },
   "scripts": {
     "build": "yarn tsc",
-    "start": "pm2 start bot"
+    "start": "yarn node ."
   }
 }

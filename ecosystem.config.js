@@ -2,7 +2,8 @@ module.exports = {
   apps: [
     {
       name: "bot",
-      script: "yarn start",
+      script: "yarn",
+      args: "start",
       log_file: "combined.log",
       env: {
         NODE_ENV: "development"
