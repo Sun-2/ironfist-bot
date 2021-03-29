@@ -8,7 +8,7 @@ export type MatchesFuncs = Record<
 export const matches: MatchesFuncs = Object.entries(phrases).reduce(
   (sum, [id, phrase]) => {
     const simplifiedPhrase = phrase.simplify();
-    sum[id as keyof typeof phrases] = (string: string, limit: number = 4) =>
+    sum[id as keyof typeof phrases] = (string: string, limit = 4) =>
       string.simplify().levenshtein(simplifiedPhrase) < limit; //todo
     return sum;
   },

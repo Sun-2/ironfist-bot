@@ -1,9 +1,8 @@
 import Discord, { Client, TextChannel } from "discord.js";
 import dotenv from "dotenv";
-
+import { matches } from "./utils/matches";
 /* Initialize prototype extensions. */
 import "./utils/initExtensions";
-import { matches } from "./utils/matches";
 
 dotenv.config();
 
@@ -66,5 +65,5 @@ dotenv.config();
 
   client.login(process.env.TOKEN);
 
-  setInterval(() => {}, 3600 * 1000 * 2);
+  // setInterval(() => {}, 3600 * 1000 * 2);
 })();
