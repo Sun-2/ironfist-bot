@@ -51,6 +51,12 @@ dotenv.config();
       else ev.channel.send("A jak?");
       return;
     }
+
+    if (Math.random() < 0.05) {
+      for (let i = 0; i < 4; i++) {
+        ev.channel.send(ev.content);
+      }
+    }
   });
 
   const pester = () => {
